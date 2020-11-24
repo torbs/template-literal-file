@@ -1,0 +1,29 @@
+{
+  "name": "template-literal-file",
+  "version": "1.0.0",
+  "description": "Load template literals (template strings) from a file. ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torbs/template-literal-file.git"
+  },
+  "keywords": [
+    "template literals",
+    "template strings"
+  ],
+  "author": "Tor Brekke Skjøtskift",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/torbs/template-literal-file/issues"
+  },
+  "homepage": "https://github.com/torbs/template-literal-file#readme",
+  "devDependencies": {
+    "tap": "^14.11.0"
+  }
+}
