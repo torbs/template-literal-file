@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Load template literals (template strings) from a file. ",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
@@ -24,6 +25,6 @@
   },
   "homepage": "https://github.com/torbs/template-literal-file#readme",
   "devDependencies": {
-    "tap": "^14.11.0"
+    "tap": "^16.3.0"
   }
 }

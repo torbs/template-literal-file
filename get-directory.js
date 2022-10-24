@@ -2,13 +2,21 @@ export const fileNamePattern = /[^/]+$/;
 export const protocollPattern = /^\w+:\/\//;
 
 export function getCallerDirectory(file) {
-    const orgFunc = Error.prepareStackTrace;
-	Error.prepareStackTrace = (err, structuredStackTrace) => structuredStackTrace;
-	const directory = new Error().stack.slice(1)[0];
-	Error.prepareStackTrace = orgFunc;
+	const _prepareStackTrace = Error.prepareStackTrace;
+	Error.prepareStackTrace = (_, stack) => stack;
+	const stack = new Error().stack.slice(1);
+	Error.prepareStackTrace = _prepareStackTrace;
 	
-    return directory
-        .getFileName()
-        .replace(fileNamePattern, '')
-        .replace(protocollPattern, '');
+    const callsite = stack.find(entry => {
+        return entry.getTypeName() !== null && entry.getFileName()
+    });
+
+    if (callsite) {
+        return callsite
+            .getFileName()
+            .replace(fileNamePattern, '')
+            .replace(protocollPattern, '');
+    }
+    throw new Error(`Could not find directory for ${file}`);
 }
+
