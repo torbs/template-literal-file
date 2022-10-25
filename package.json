@@ -1,6 +1,6 @@
 {
   "name": "template-literal-file",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Load template literals (template strings) from a file. ",
   "main": "index.js",
   "type": "module",
