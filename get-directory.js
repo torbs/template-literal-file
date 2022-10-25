@@ -8,7 +8,7 @@ export function getCallerDirectory(file) {
 	Error.prepareStackTrace = _prepareStackTrace;
 	
     const callsite = stack.find(entry => {
-        return entry.getTypeName() !== null && entry.getFileName()
+        return entry.getTypeName() !== null && entry.getFileName() !== null
     });
 
     if (callsite) {
