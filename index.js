@@ -14,7 +14,7 @@ export function renderFile(file) {
     } catch (e) {
         throw new Error(`Failed to read ${filePath}`);
     }
-    templateFiles[filePath] = function template(vars) {
+    templateFiles[filePath] = function template(vars = {}) {
         const keys = Object.keys(vars);
         // @ts-ignore
         const values = Object.values(vars);
