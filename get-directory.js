@@ -6,10 +6,12 @@ export function getCallerDirectory(file) {
 	Error.prepareStackTrace = (_, stack) => stack;
 	const stack = new Error().stack.slice(1);
 	Error.prepareStackTrace = _prepareStackTrace;
-	
-    const callsite = stack.find(entry => {
-        return entry.getTypeName() !== null && entry.getFileName() !== null
+
+    const currentIndex = stack.findIndex(entry => {
+        return entry.getFunctionName() === 'renderFile';
     });
+
+    const callsite = stack[currentIndex + 1];
 
     if (callsite) {
         return callsite
@@ -19,4 +21,3 @@ export function getCallerDirectory(file) {
     }
     throw new Error(`Could not find directory for ${file}`);
 }
-
