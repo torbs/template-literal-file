@@ -12,7 +12,7 @@ export function renderFile(file) {
     try {
         const templateFile = readFileSync(filePath, 'utf8');
     } catch (e) {
-        throw new Error(`Failed to read ${filepath}`);
+        throw new Error(`Failed to read ${filePath}`);
     }
     templateFiles[filePath] = function template(vars) {
         const keys = Object.keys(vars);
